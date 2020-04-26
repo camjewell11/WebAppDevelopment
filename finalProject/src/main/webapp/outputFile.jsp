@@ -1,7 +1,7 @@
 <%-- 
     Document   : outputFile
     Created on : Apr 26, 2020, 3:46:40 PM
-    Author     : cameron
+    Author     : Cameron Jewell
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,6 +33,7 @@
             }
         </style>
         
+        <%-- Button to download created file. --%>
         <a href="" download="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>
     </body>
 </html>
