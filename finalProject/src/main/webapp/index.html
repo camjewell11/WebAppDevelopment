@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>XML Generator</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Test Button</h1>
+        <input type="button" value="Go to Download" onclick="openPage('outputFile.jsp')" />
+        
+        <script type="text/javascript">
+        function openPage(pageURL) {
+            window.location.href = pageURL;
+        }
+       </script>
     </body>
 </html>
