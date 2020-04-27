@@ -10,8 +10,7 @@
     </head>
     <body>
         <h1>Congratulations on finishing your new XML file!</h1>
-        Click the button below to download your file.<br><br>
-        
+        A preview of the file can be seen here:<br>
         <%
             String fileName = "test.xml";
             XMLprinter temp = new XMLprinter();
@@ -35,7 +34,16 @@
             }
         </style>
         
+        Click the Download button below to download your file. Or select Home to return to the previous screen.<br><br>
+        
         <%-- Button to download created file. --%>
         <a download href="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>
+        <button class="btn" type="submit" onclick="openPage('index.html')">Return Home</button>
+        
+        <script type="text/javascript">
+        function openPage(pageURL) {
+            window.location.href = pageURL;
+        }
+       </script>
     </body>
 </html>
