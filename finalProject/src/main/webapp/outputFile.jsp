@@ -16,7 +16,7 @@
             String output = temp.getXML(fileName);
         %>
         <textarea rows="20" cols="40" border="3px">
-        <%=output%>
+            <%=output%>
         </textarea><br><br>
         
         <style>

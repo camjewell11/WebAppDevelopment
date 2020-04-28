@@ -3,16 +3,36 @@
     <head>
         <title>XML Generator</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <style>
+            input[type=text], select {
+                width: 30%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            input[type=submit] {
+                background-color: DodgerBlue;
+                border: none;
+                color: white;
+                padding: 12px 30px;
+                cursor: pointer;
+                font-size: 20px;
+            }
+            input[type=submit]:hover {
+                background-color: RoyalBlue;
+            }
+        </style>
     </head>
     <body>
-        <h1>Test Button</h1>
-        <!-- Sample home page. Need to add visual functionality to buttons for creating XML text. -->
-        <input type="button" value="Go to Download page" onclick="openPage('outputFile.jsp')" />
+        <h1>Enter your desired file name.</h1>
         
-        <script type="text/javascript">
-        function openPage(pageURL) {
-            window.location.href = pageURL;
-        }
-       </script>
+        <form action="createXML.jsp" method="POST">
+            <input type="text" name="fileName" id="fileName" placeholder="someFile.xml" /><br>
+            <input type="submit" value="Get Started" />
+        </form>
     </body>
 </html>
