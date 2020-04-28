@@ -22,6 +22,30 @@
             
             lineXML testXML = new lineXML("test", 2);
             state.add(testXML);
-        %>
+        %><br><br>
+        
+        <form action="outputFile.jsp" method="POST">
+            <input type="submit" value="Go to Download" />
+        </form>
+        <form action="index.html" method="POST">
+            <input type="submit" value="Return Home" />
+        </form>
+        
+        <style>
+            input[type=submit] {
+                    background-color: DodgerBlue;
+                    border: none;
+                    color: white;
+                    padding: 12px 30px;
+                    cursor: pointer;
+                    font-size: 20px;
+            }
+            input[type=submit]:hover {
+                background-color: RoyalBlue;
+            }
+            form {
+                display: inline-block;
+            }
+        </style>
     </body>
 </html>
