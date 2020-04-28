@@ -15,11 +15,23 @@
             XMLprinter temp = new XMLprinter();
             String output = temp.getXML(fileName);
         %>
-        <textarea rows="50" cols="100" border="3px">
-            <%=output%>
-        </textarea><br><br>
+        <textarea rows="50" cols="100" border="3px"><%=output%></textarea><br><br>
         
-        <style>
+        Click the Download button below to download your file. Select Edit to make additional changes. Or select Home to return to the previous screen.<br><br>
+        
+        <!-- Button to download created file. -->
+        <a download href="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>
+        <button class="btn" type="submit" onclick="openPage('createXML.jsp')">Edit File</button>
+        <button class="btn" type="submit" onclick="openPage('index.html')">Return Home</button>
+        
+        <!-- redirection script; used for buttons -->
+        <script type="text/javascript">
+        function openPage(pageURL) {
+            window.location.href = pageURL;
+        }
+       </script>
+       
+       <style>
             .btn {
                 background-color: DodgerBlue;
                 border: none;
@@ -32,18 +44,5 @@
                 background-color: RoyalBlue;
             }
         </style>
-        
-        Click the Download button below to download your file. Or select Home to return to the previous screen.<br><br>
-        
-        <!-- Button to download created file. -->
-        <a download href="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>
-        <button class="btn" type="submit" onclick="openPage('createXML.jsp')">Return Home</button>
-        
-        <!-- redirection script; used for buttons -->
-        <script type="text/javascript">
-        function openPage(pageURL) {
-            window.location.href = pageURL;
-        }
-       </script>
     </body>
 </html>
