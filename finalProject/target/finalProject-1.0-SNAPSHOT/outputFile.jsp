@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.io.*" %>
 <%@page import="output.XMLprinter" %>
-<%@page import="java.util.Scanner" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +16,7 @@
             String output = temp.getXML(fileName);
         %>
         <textarea rows="20" cols="40" border="3px">
-            <%=output%>
+        <%=output%>
         </textarea><br><br>
         
         <style>
@@ -36,10 +35,11 @@
         
         Click the Download button below to download your file. Or select Home to return to the previous screen.<br><br>
         
-        <%-- Button to download created file. --%>
+        <!-- Button to download created file. -->
         <a download href="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>
         <button class="btn" type="submit" onclick="openPage('index.html')">Return Home</button>
         
+        <!-- redirection script; used for buttons -->
         <script type="text/javascript">
         function openPage(pageURL) {
             window.location.href = pageURL;

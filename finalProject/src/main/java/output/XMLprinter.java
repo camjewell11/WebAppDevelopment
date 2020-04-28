@@ -1,7 +1,6 @@
 package output;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class XMLprinter {
     public XMLprinter() {}
