@@ -12,8 +12,10 @@
         <h1>Begin creating your XML file!</h1>
         
         <%
-            String fileName = request.getParameter("fileName"); 
+            String fileName = request.getParameter("fileName");
+            session.setAttribute("fileName", fileName);
             out.print(fileName);
+            
             ArrayList<lineXML> state = new ArrayList<lineXML>();
             if(null == session.getAttribute("state"))
                 session.setAttribute("state", state);
@@ -22,7 +24,8 @@
             
             lineXML testXML = new lineXML("test", 2);
             state.add(testXML);
-        %><br><br>
+        %>
+        <br><br>
         
         <form action="outputFile.jsp" method="POST">
             <input type="submit" value="Go to Download" />

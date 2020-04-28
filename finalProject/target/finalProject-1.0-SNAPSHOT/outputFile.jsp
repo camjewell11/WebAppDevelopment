@@ -11,11 +11,11 @@
         <h1>Congratulations on finishing your new XML file!</h1>
         A preview of the file can be seen here:<br>
         <%
-            String fileName = "test.xml";
+            String fileName = (String)session.getAttribute("fileName");
             XMLprinter temp = new XMLprinter();
             String output = temp.getXML(fileName);
         %>
-        <textarea rows="20" cols="40" border="3px">
+        <textarea rows="50" cols="100" border="3px">
             <%=output%>
         </textarea><br><br>
         

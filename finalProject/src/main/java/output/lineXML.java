@@ -26,4 +26,10 @@ public class lineXML {
     public int getDepth() {
         return this.depth;
     }
+    
+    // used to pad XML output before it goes in downloadable/displayable file
+    public void addSpacing() {
+        for(int i = 0; i < depth; i++)
+            line = "    " + line;
+    }
 }
