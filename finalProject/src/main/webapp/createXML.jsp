@@ -14,11 +14,10 @@
         
         <%
             String fileName = request.getParameter("fileName");
-            String relativePath = "/Users/cameron/Downloads/finalProject/finalProject/src/main/webapp/" + fileName;
+            String relativePath = "/Users/cameron/Downloads/" + "finalProject/finalProject/src/main/webapp/" + fileName;
             session.setAttribute("fileName", fileName);
-            out.print(fileName);
             
-            ArrayList<lineXML> state = new ArrayList<lineXML>();
+            ArrayList<lineXML> state = new ArrayList<>();
             if(null == session.getAttribute("state"))
                 session.setAttribute("state", state);
             else
@@ -28,8 +27,17 @@
             writer.println("test");
             writer.close();
         %>
+        <div class="split left">
+            <div class="centered">
+                
+            </div>
+        </div>
+        <div class="split right">
+            <div class="centered">
+                
+            </div>
+        </div>
         <br><br>
-        
         <form action="outputFile.jsp" method="POST">
             <input type="submit" value="Go to Download" />
         </form>
@@ -39,18 +47,32 @@
         
         <style>
             input[type=submit] {
-                    background-color: DodgerBlue;
-                    border: none;
-                    color: white;
-                    padding: 12px 30px;
-                    cursor: pointer;
-                    font-size: 20px;
+                background-color: DodgerBlue;
+                border: none;
+                color: white;
+                padding: 12px 30px;
+                cursor: pointer;
+                font-size: 20px;
             }
             input[type=submit]:hover {
                 background-color: RoyalBlue;
             }
             form {
                 display: inline-block;
+            }
+            .split {
+                width: 48%;
+                position: fixed;
+            }
+            .left {
+                left: 0;
+                border: 2px solid black;
+                margin-left: 1%
+            }
+            .right {
+                right: 0;
+                border: 2px solid black;
+                margin-right: 1%
             }
         </style>
     </body>
