@@ -1,6 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.io.*" %>
 <%@page import="output.XMLprinter" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="output.lineXML"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,10 +16,12 @@
             String fileName = (String)session.getAttribute("fileName");
             XMLprinter temp = new XMLprinter();
             String output = temp.getXML(fileName);
+            
+            ArrayList<lineXML> state = (ArrayList<lineXML>)session.getAttribute("state");
         %>
         <textarea rows="50" cols="100" border="3px"><%=output%></textarea><br><br>
         
-        Click the Download button below to download your file. Select Edit to make additional changes. Or select Home to return to the previous screen.<br><br>
+        Click the Download button below to download your file. Select Edit to make additional changes. Or select Home to return to the first screen.<br><br>
         
         <!-- Button to download created file. -->
         <a download href="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>

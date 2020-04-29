@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
+<%@page import="java.io.PrintWriter" %>
 <%@page import="output.lineXML" %>
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@
         
         <%
             String fileName = request.getParameter("fileName");
+            String relativePath = "/Users/cameron/Downloads/finalProject/finalProject/src/main/webapp/" + fileName;
             session.setAttribute("fileName", fileName);
             out.print(fileName);
             
@@ -22,8 +24,9 @@
             else
                 state = (ArrayList<lineXML>)session.getAttribute("state");
             
-            lineXML testXML = new lineXML("test", 2);
-            state.add(testXML);
+            PrintWriter writer = new PrintWriter(relativePath, "UTF-8");
+            writer.println("test");
+            writer.close();
         %>
         <br><br>
         
