@@ -12,10 +12,14 @@
         <title>XML Generator</title>
     </head>
     <body>
+        <%
+            session.removeAttribute("state");
+        %>
+        
         <h1>Enter your desired file name.</h1>
         
         <form action="createXML.jsp" method="POST">
-            <input type="text" name="fileName" id="fileName" placeholder="someFile.xml (.xml filetype required)" pattern="^[\w,\s-]+\.xml$" /><br>
+            <input type="text" name="fileName" onkeypress="javascript:return  (event.keyCode != 13)" id="fileName" placeholder="someFile.xml (.xml filetype required)" pattern="^[\w,\s-]+\.xml$" /><br>
             <input type="submit" value="Get Started" />
         </form>
         

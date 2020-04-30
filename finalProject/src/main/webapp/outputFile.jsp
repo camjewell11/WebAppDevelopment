@@ -23,6 +23,8 @@
             PrintWriter writer = new PrintWriter(relativePath, "UTF-8");
             writer.println(toFile);
             writer.close();
+            
+            Thread.sleep(1000); 
         %>
         <textarea rows="50" cols="100" border="3px"><%=toFile%></textarea><br><br>
         
