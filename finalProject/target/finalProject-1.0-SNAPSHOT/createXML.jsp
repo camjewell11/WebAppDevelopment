@@ -26,14 +26,16 @@
             else
                 state = (ArrayList<lineXML>)session.getAttribute("state");
             
-            lineXML tester = new lineXML("thingy", 1);
+            lineXML testy = new lineXML("things", 0);
+            state.add(testy);
+            lineXML tester = new lineXML("thingy", 1, "value");
             state.add(tester);
         %>
         <div class="top">
             <div class="left">
                 <div class="inside">
                     <input id="rootName" type="textE" placeholder="root element" />
-                    <input type="submit" value="Add" onclick="update(document.getElementById('rootName').value);" />
+                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('rootName').value);" />
                 </div>
             </div>
             <div class="right">
@@ -51,19 +53,12 @@
             </form>
         </div>
         <script language="javascript" >
-            function update(newText) {
-                temp = updateState();        
-                var strs = temp[0];
-                var nums = temp[1];
-                
+            function updateDisplay(newText) {
+                var strs = updateState();
                 var display = "";
                 
                 for (i = 0; i < strs.length; i++) {
-                    var spaces = "";
-                    for (j = 0; j < nums[i]; j++) {
-                        spaces += "    ";
-                    }
-                    display += spaces + strs[i] + "\n";
+                    display += strs[i] + "\n";
                 }
                 
                 document.getElementById("displayText").innerHTML = display;
@@ -71,14 +66,12 @@
             
             function updateState() {
                 var stateStrings = [];
-                var stateDepths = [];
                 
-                <% for (int i=0; i<state.size(); i++) { %>
-                    stateStrings[<%= i %>] = "<%= state.get(i).getLine() %>";
-                    stateDepths[<%= i %>] = "<%= state.get(i).getDepth() %>";
+                <% for (int i = 0; i < state.size(); i++) { %>
+                    stateStrings[<%=i%>] = "<%=state.get(i).getLine()%>";
                 <% } %>
                     
-                return [stateStrings, stateDepths];
+                return stateStrings;
             }
         </script>
         <style>

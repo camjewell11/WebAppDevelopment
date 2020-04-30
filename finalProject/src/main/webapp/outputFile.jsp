@@ -31,7 +31,7 @@
         <!-- Button to download created file. -->
         <a download href="<%=fileName%>"<button class="btn" type="submit">Download <%=fileName%></button></a>
         <button class="btn" type="submit" onclick="openPage('createXML.jsp')">Edit File</button>
-        <button class="btn" type="submit" onclick="openPage('index.html')">Return Home</button>
+        <button class="btn" type="submit" onclick="openPage('home.jsp')">Return Home</button>
         
         <!-- redirection script; used for buttons -->
         <script type="text/javascript">

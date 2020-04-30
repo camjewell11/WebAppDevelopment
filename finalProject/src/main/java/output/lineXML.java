@@ -3,28 +3,59 @@ package output;
 public class lineXML {
     private int depth;
     private String line;
+    private String element;
+    private String attribute;
+    private String eValue;
+    private String aValue;
+    private boolean isDone = false;
     
-    public lineXML() {
+    public lineXML(String element) {
         depth = 0;
-        line = "";
+        this.element = element;
     }
-    public lineXML(String line, int depth) {
-        this.line = line;
+    public lineXML(String element, int depth) {
+        this.element = element;
         this.depth = depth;
+    }
+    public lineXML(String element, int depth, String eValue) {
+        this.element = element;
+        this.depth = depth;
+        this.eValue = eValue;
     }
     
-    public void setLine(String line) {
-        this.line = line;
+    public void setElement(String element) {
+        this.element = element;
     }
-    public void setDepth(int depth) {
-        this.depth = depth;
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
+    }
+    public void seteValue(String ev) {
+        this.eValue = ev;
+    }
+    public void setaValue(String av) {
+        this.aValue = av;
+    }
+    
+    public String getElement() {
+        return element;
+    }
+    public int getDepth() {
+        return depth;
     }
     
     public String getLine() {
-        return this.line;
-    }
-    public int getDepth() {
-        return this.depth;
+        line = "";
+        
+        if (element != null) {
+            line += "<" + element;
+            if (eValue != null)
+                line += ">" + eValue + "</" + element + ">";
+            else
+                line += ">";
+        }
+        addSpacing();
+        
+        return line;
     }
     
     // used to pad XML output before it goes in downloadable/displayable file
