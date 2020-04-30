@@ -14,12 +14,17 @@
         A preview of the file can be seen here:<br>
         <%
             String fileName = (String)session.getAttribute("fileName");
-            XMLprinter temp = new XMLprinter();
-            String output = temp.getXML(fileName);
+            String relativePath = (String)session.getAttribute("relativePath");
             
+            XMLprinter temp = new XMLprinter();
             ArrayList<lineXML> state = (ArrayList<lineXML>)session.getAttribute("state");
+            String toFile = temp.convertStateToString(state);
+            
+            PrintWriter writer = new PrintWriter(relativePath, "UTF-8");
+            writer.println(toFile);
+            writer.close();
         %>
-        <textarea rows="50" cols="100" border="3px"><%=output%></textarea><br><br>
+        <textarea rows="50" cols="100" border="3px"><%=toFile%></textarea><br><br>
         
         Click the Download button below to download your file. Select Edit to make additional changes. Or select Home to return to the first screen.<br><br>
         

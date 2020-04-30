@@ -16,6 +16,7 @@
             String fileName = request.getParameter("fileName");
             String relativePath = "/Users/cameron/Downloads/" + "finalProject/finalProject/src/main/webapp/" + fileName;
             session.setAttribute("fileName", fileName);
+            session.setAttribute("relativePath", relativePath);
             
             XMLprinter printyBoi = new XMLprinter();
             
@@ -25,9 +26,8 @@
             else
                 state = (ArrayList<lineXML>)session.getAttribute("state");
             
-            PrintWriter writer = new PrintWriter(relativePath, "UTF-8");
-            writer.println("test");
-            writer.close();
+            lineXML tester = new lineXML("thingy", 1);
+            state.add(tester);
         %>
         <div class="top">
             <div class="left">
@@ -52,7 +52,33 @@
         </div>
         <script language="javascript" >
             function update(newText) {
-                document.getElementById("displayText").innerHTML = newText;
+                temp = updateState();        
+                var strs = temp[0];
+                var nums = temp[1];
+                
+                var display = "";
+                
+                for (i = 0; i < strs.length; i++) {
+                    var spaces = "";
+                    for (j = 0; j < nums[i]; j++) {
+                        spaces += "    ";
+                    }
+                    display += spaces + strs[i] + "\n";
+                }
+                
+                document.getElementById("displayText").innerHTML = display;
+            }
+            
+            function updateState() {
+                var stateStrings = [];
+                var stateDepths = [];
+                
+                <% for (int i=0; i<state.size(); i++) { %>
+                    stateStrings[<%= i %>] = "<%= state.get(i).getLine() %>";
+                    stateDepths[<%= i %>] = "<%= state.get(i).getDepth() %>";
+                <% } %>
+                    
+                return [stateStrings, stateDepths];
             }
         </script>
         <style>
