@@ -32,4 +32,8 @@ public class lineXML {
         for(int i = 0; i < depth; i++)
             line = "    " + line;
     }
+    
+    public void makeCloser() {
+        line = line.replaceAll("<", "</");
+    }
 }

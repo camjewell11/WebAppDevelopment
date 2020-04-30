@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="java.io.PrintWriter" %>
 <%@page import="output.lineXML" %>
+<%@page import="output.XMLprinter" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,8 @@
             String relativePath = "/Users/cameron/Downloads/" + "finalProject/finalProject/src/main/webapp/" + fileName;
             session.setAttribute("fileName", fileName);
             
+            XMLprinter printyBoi = new XMLprinter();
+            
             ArrayList<lineXML> state = new ArrayList<>();
             if(null == session.getAttribute("state"))
                 session.setAttribute("state", state);
@@ -29,13 +32,13 @@
         <div class="top">
             <div class="left">
                 <div class="inside">
-                    <input type="text" placeholder="root element" />
-                    <input type="submit" value="Add" onclick="updateDisplay();" />
+                    <input id="rootName" type="textE" placeholder="root element" />
+                    <input type="submit" value="Add" onclick="update(document.getElementById('rootName').value);" />
                 </div>
             </div>
             <div class="right">
                 <div class="inside">
-                    test
+                    <div id="displayText" >filler</div>
                 </div>
             </div>
         </div>
@@ -47,9 +50,14 @@
                 <input type="submit" value="Return Home" />
             </form>
         </div>
+        <script language="javascript" >
+            function update(newText) {
+                document.getElementById("displayText").innerHTML = newText;
+            }
+        </script>
         <style>
-            input[type=text], select {
-                width: 30%;
+            input[type=textE], select {
+                width: 50%;
                 padding: 12px 20px;
                 margin: 8px 0;
                 display: inline-block;
@@ -64,7 +72,19 @@
                 cursor: pointer;
                 font-size: 20px;
             }
+            input[type=submitE] {
+                width: 10%;
+                background-color: DodgerBlue;
+                border: none;
+                color: white;
+                padding: 10px 30px;
+                cursor: pointer;
+                font-size: 15px;
+            }
             input[type=submit]:hover {
+                background-color: RoyalBlue;
+            }
+            input[type=submitE]:hover {
                 background-color: RoyalBlue;
             }
             form {

@@ -33,9 +33,9 @@
         function openPage(pageURL) {
             window.location.href = pageURL;
         }
-       </script>
+        </script>
        
-       <style>
+        <style>
             .btn {
                 background-color: DodgerBlue;
                 border: none;
