@@ -26,16 +26,29 @@
             else
                 state = (ArrayList<lineXML>)session.getAttribute("state");
             
-            lineXML testy = new lineXML("things", 0);
-            state.add(testy);
-            lineXML tester = new lineXML("thingy", 1, "value");
-            state.add(tester);
+            
+            // hard coded example
+            lineXML testr = new lineXML("things", 0);
+            state.add(testr);
+            lineXML test1 = new lineXML("thing1", 1, "value 1");
+            state.add(test1);
+            lineXML test2 = new lineXML("thing2", 1, "value 2");
+            state.add(test2);
+            lineXML test3 = new lineXML("thing3", 1, "value 3");
+            state.add(test3);
+            lineXML test4 = new lineXML("thing4", 1, "value 4");
+            state.add(test4);
+            lineXML test5 = new lineXML("thing5", 1, "value 5");
+            state.add(test5);
         %>
         <div class="top">
             <div class="left">
                 <div class="insideL">
+                    <%-- root --%>
                     <input id="rootName" type="textR" placeholder="root element" />
                     <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('rootName').value, 2);" /><br>
+                    
+                    <%-- element --%>
                     <img src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
                     <input id="element" type="textE" placeholder="element" />
                     <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('element').value, 1);" /><br>
@@ -48,6 +61,23 @@
                     <img class="tab" src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
                     <input id="aValue" type="textV" placeholder="attribute value" />
                     <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('aValue').value, 1);" /><br>
+                    
+                    <%-- nested element --%>
+                    Nested Element<br>
+                    <div class="tab">
+                        <img src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                        <input id="element" type="textE" placeholder="nested element" />
+                        <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('element').value, 1);" /><br>
+                        <img class="tab" src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                        <input id="eValue" type="textV" placeholder="nested element value" />
+                        <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('eValue').value, 1);" /><br>
+                        <img src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                        <input id="attribute" type="textE" placeholder="nested attribute" />
+                        <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('attribute').value, 1);" /><br>
+                        <img class="tab" src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                        <input id="aValue" type="textV" placeholder="nested attribute value" />
+                        <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('aValue').value, 1);" /><br>
+                    </div>
                 </div>
             </div>
             <div class="right">
@@ -70,7 +100,7 @@
                 var display = "";
                 
                 for (i = 0; i < strs.length; i++) {
-                    display += strs[i] + "\n";
+                    display += strs[i] + "<br>";
                 }
                 
                 document.getElementById("displayText").innerHTML = display;
