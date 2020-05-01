@@ -33,14 +33,26 @@
         %>
         <div class="top">
             <div class="left">
-                <div class="inside">
-                    <input id="rootName" type="textE" placeholder="root element" />
-                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('rootName').value);" />
+                <div class="insideL">
+                    <input id="rootName" type="textR" placeholder="root element" />
+                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('rootName').value, 2);" /><br>
+                    <img src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                    <input id="element" type="textE" placeholder="element" />
+                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('element').value, 1);" /><br>
+                    <img class="tab" src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                    <input id="eValue" type="textV" placeholder="element value" />
+                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('eValue').value, 1);" /><br>
+                    <img src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                    <input id="attribute" type="textE" placeholder="attribute" />
+                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('attribute').value, 1);" /><br>
+                    <img class="tab" src="http://localhost:8080/finalProject/img/tab_symbol_smaller.png" >
+                    <input id="aValue" type="textV" placeholder="attribute value" />
+                    <input type="submit" value="Add" onclick="updateDisplay(document.getElementById('aValue').value, 1);" /><br>
                 </div>
             </div>
             <div class="right">
-                <div class="inside">
-                    <div id="displayText" >filler</div>
+                <div class="insideR">
+                    <div id="displayText" >Your unformed XML will appear here.</div>
                 </div>
             </div>
         </div>
@@ -53,7 +65,7 @@
             </form>
         </div>
         <script language="javascript" >
-            function updateDisplay(newText) {
+            function updateDisplay(newText, depth) {
                 var strs = updateState();
                 var display = "";
                 
@@ -75,9 +87,28 @@
             }
         </script>
         <style>
-            input[type=textE], select {
+            .tab {
+                margin-left: 5%;
+            }
+            input[type=textR], select {
                 width: 50%;
-                padding: 12px 20px;
+                padding: 14px 18px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type=textE], select {
+                width: 45%;
+                padding: 14px 18px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type=textV], select {
+                width: 40%;
+                padding: 14px 18px;
                 margin: 8px 0;
                 display: inline-block;
                 border: 1px solid #ccc;
@@ -90,6 +121,7 @@
                 padding: 12px 30px;
                 cursor: pointer;
                 font-size: 20px;
+                display: inline-block;
             }
             input[type=submitE] {
                 width: 10%;
@@ -135,7 +167,11 @@
                 border: 2px solid black;
                 margin-right: 1%
             }
-            .inside {
+            .insideL {
+                margin-left: 2%;
+                margin-top: 2%;
+            }
+            .insideR {
                 margin-left: 2%;
                 margin-top: 2%;
             }
